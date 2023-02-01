@@ -1,0 +1,65 @@
+:root {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  }
+
+  main {
+    text-align: center;
+    padding: 1em;
+    margin: 0 auto;
+  }
+
+  img {
+    height: 8rem;
+    width: 8rem;
+  }
+
+  h1 {
+    color: olive;
+    text-transform: uppercase;
+    font-size: 4rem;
+    font-weight: 400;
+    line-height: 1.1;
+    margin: 2rem auto;
+  }
+
+
+.cat-fact-container {
+    border: 0.2rem solid #ccc;
+    padding: 1rem;
+    margin: 2rem;
+    border-radius: 1rem;
+    background-color: beige;
+  }
+  p {
+    margin: 1rem auto;
+    line-height: 1.35;
+    font-size: 1.6rem;
+  }
+  .counting {
+    padding-top: 0.5rem;
+  }
+
+  button {
+    padding: 1rem 1rem;
+    background-color: olive;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: 0px;
+    border-radius: 1rem;
+    box-shadow: 2px 2px 5px grey;
+  }
+
+  .pressed {
+    box-shadow: 0 3px 4px 0 #dbedf3;
+    opacity: 0.5;
+  }
+
+  @media (max-width: 480px) {
+
+    .cat-fact-container {
+    padding: 2rem;
+    margin: 1rem;
+    }
+  }
