@@ -159,6 +159,32 @@ function getPokemonAbility() {
 
 }
 
+// Random Pokemon Sprite
+
+function getRandomPokemon() {
+    fetch("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1300") //För att ta all pokemon data!
+    .then (function (response) {
+        return response.json();
+    })
+    .then((response) => {
+        let data = response;
+        console.log(data);
+
+        let rng = data.results[Math.floor(Math.random() * data.results.length)];
+        
+        document.querySelector(".pokePokemonText").innerHTML = rng.name;
+        fetch(rng.url)
+        .then (function (response){
+            return response.json();
+        })
+        .then((response) => {
+            let data2 = response;
+            console.log(data2);
+        })
+    })
+}
+
+
 
 /**
  * Här är funktionen för knappanimation

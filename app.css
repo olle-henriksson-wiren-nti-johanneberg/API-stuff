@@ -98,3 +98,11 @@
     font-weight: bold;
     text-transform: uppercase;
   }
+
+  .pokePokemonImage {
+    width: 40vw;
+    height: 40vh;
+  }
+  #randomPokemonBox {
+    
+  }
