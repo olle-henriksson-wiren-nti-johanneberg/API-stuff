@@ -39,12 +39,25 @@
 
 
       <div id="randomPokemonBox">
+        
+        <div class="guessModeBox">
+          <div class="showAnswersBox" onclick="showAnswer()"><p>Show Answers</p></div>
+          <div class="guessModeInsideBox">
+            <div class="guessModeButton" onclick="guessModeButton()">
+              <div class="guessModeButtonFill"></div>
+            </div>
+            <p>Guess Mode</p>
+          </div>
+        </div>
       <p class="pokePokemonText"></p>
       <div class="pokePokemonTypesBox">
-          <div class="pokePokemonType slot1" id="0"></div>
-          <div class="pokePokemonType slot2" id="1"></div>
+            <div class="pokePokemonType slot1" id="0"></div>
+            <div class="pokePokemonType slot2" id="1"></div>
       </div>
       <img class="pokePokemonImage" alt="No Pokemon Sprite" src="images/Color-white.JPG" > 
+      <div class="genBox">
+          <p class="genText" onclick="guessModeToggle()">Original Generation:<span class="genTextSpan"></span></p>
+      </div>
 
       <button class="pokePokemonButton" onclick="getRandomPokemon()">Random Pokémon.</button>
       </div>

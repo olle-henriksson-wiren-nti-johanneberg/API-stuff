@@ -173,14 +173,22 @@ function getRandomPokemon() {
         let rng = data.results[Math.floor(Math.random() * data.results.length)];
         
         document.querySelector(".pokePokemonText").innerHTML = rng.name;
-        fetch(rng.url)
+        fetch(rng.url) // To fetch the image of said pokémon
         .then (function (response){
             return response.json();
         })
         .then((response) => {
             let data2 = response;
 
-
+            let genTextSpan = document.querySelector(".genTextSpan")
+            let pokemonType1 = document.querySelector(".slot1")
+            let pokemonType2 = document.querySelector(".slot2")
+            
+            if (document.querySelector(".guessModeButtonFill").classList.contains("guessModeOn")) {
+                genTextSpan.classList.add("hidden") 
+                pokemonType1.classList.add("hidden")
+                pokemonType2.classList.add("hidden")   
+            }
 
             console.log(data2);
             console.log(data2.sprites.front_default)
@@ -195,15 +203,54 @@ function getRandomPokemon() {
             } else {
                 document.querySelector(".slot2").innerHTML = " ";
                 document.querySelector(".slot2").id = "noType"
-
-
             }
+        fetch(data2.species.url) // För att hitta species datan, används under för att ta fram OG generation
+        .then (function(response) {
+            return response.json();
+        })
+        .then((response) => {
+            let data3 = response;
+            
+
+            console.log(data3)
+            console.log(data3.generation.name)
+            document.querySelector(".genTextSpan").innerHTML = data3.generation.name
             
         })
-    })
+        })   
+                 
+       
+    }) 
 }
 
+function guessModeButton() { // To toggle the fill on button
+    document.querySelector(".guessModeButtonFill").classList.toggle("guessModeOn")
+}
+// För att dölja och visa // Guess Mode
+function guessModeAnswers() {
+    let genTextSpan = document.querySelector(".genTextSpan")
+    let pokemonType1 = document.querySelector(".slot1")
+    let pokemonType2 = document.querySelector(".slot2")
+
+    console.log("guessModeBUtton Toggled")
+    genTextSpan.classList.add("hidden") 
+    pokemonType1.classList.add("hidden")
+    pokemonType2.classList.add("hidden")    
+
+}
+
+ function showAnswer() {
+    let genTextSpan = document.querySelector(".genTextSpan")
+    let pokemonType1 = document.querySelector(".slot1")
+    let pokemonType2 = document.querySelector(".slot2")
+
+    genTextSpan.classList.remove("hidden") 
+    pokemonType1.classList.remove("hidden")
+    pokemonType2.classList.remove("hidden")   
+ }
 // Types Functions
+
+
 
 /**
  * Här är funktionen för knappanimation

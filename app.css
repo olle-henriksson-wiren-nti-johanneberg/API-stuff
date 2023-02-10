@@ -104,8 +104,8 @@
     text-transform: uppercase ;
   }
   .pokePokemonImage {
-    width: 40vw;
-    height: 40vh;
+    width: 15vw;
+    height: 25vh;
     border: solid 1px black;
     margin-bottom: 1em;
   }
@@ -123,20 +123,91 @@
     justify-content: center;
     display: flex;
     font-weight: 500;
-
+    user-select: none;
+  }
+  .guessModeBox {
+    display: flex;
+    flex-direction: row;  
+    align-items: center;
+    width: 100%;
+    justify-content: space-around;
+  }
+  .showAnswersBox {
+    width: 10vw;
+    border: solid 1px black;
+    border-radius: 0.33em;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    cursor: pointer;
+    user-select: none;
+  }
+  .showAnswersBox p {
+    font-size: 1em;
+    text-transform: uppercase;
+  }
+  .guessModeInsideBox {
+    width: 10%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-style: italic;
+    text-transform: uppercase;
+  }
+  .guessModeInsideBox p {
+    font-size: 1em;
+  }
+  .guessModeButton {
+    width: 25px;
+    height: 25px;
+    border: solid black 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all ease 0.1s;
 
   }
+  .guessModeOn {
+    width: 100%;
+    height: 80%;
+    background-color: black;
+    border: white 2px solid;
+    transition: all ease 0.1s;
+  }
+  .guessModeButtonFill {
+  transition: all ease 0.1s;
+  }
+
   .pokePokemonTypesBox {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
   }
+  .genBox p {
+    font-size: 1em;
+    font-style: italic;
+  }
+  .genTextSpan {
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    user-select: none;
+  }
+  .hidden {
+    background-color: black;
+    background: black;
+    cursor: pointer;
+    color: transparent;
+    filter: brightness(0);
+  }
   #randomPokemonBox {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
+
   #bug {
     background: linear-gradient(350deg,rgba(172, 255, 47, 0.5), rgba(255,255,255,1) 80%); 
 
@@ -191,7 +262,6 @@
   #dark {
     background: linear-gradient(350deg, rgb(79, 79, 79), rgba(255,255,255,1) 80%); 
 
-    color: white;
   }
   #ghost {
     background: linear-gradient(350deg, mediumslateblue, rgba(255,255,255,1) 80%); 
@@ -199,7 +269,6 @@
   #dragon {
     background: linear-gradient(350deg, rgb(107, 19, 248), rgba(255,255,255,1) 80%); 
 
-    color: white;
   }
   #normal {
     background: linear-gradient(350deg, rgb(213, 213, 213), rgba(255,255,255,1) 80%); 
