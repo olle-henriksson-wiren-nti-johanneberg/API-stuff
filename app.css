@@ -98,11 +98,117 @@
     font-weight: bold;
     text-transform: uppercase;
   }
-
+  .pokePokemonText {
+    margin-top: 3em;
+    font-weight: bold;
+    text-transform: uppercase ;
+  }
   .pokePokemonImage {
     width: 40vw;
     height: 40vh;
+    border: solid 1px black;
+    margin-bottom: 1em;
+  }
+  .pokePokemonType {
+    width: 15vw;
+    height: 4vh;
+    border: solid 2px black;
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-bottom: 1em;
+    border-radius: 0.33em;
+    text-transform: uppercase;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-weight: 500;
+
+
+  }
+  .pokePokemonTypesBox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
   }
   #randomPokemonBox {
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #bug {
+    background: linear-gradient(350deg,rgba(172, 255, 47, 0.5), rgba(255,255,255,1) 80%); 
+
+  }
+  #water {
+    background: linear-gradient(350deg, aqua, rgba(255,255,255,1) 80%);
+  }
+  #flying {
+    background: linear-gradient(350deg, rgb(168, 244, 224), rgba(255,255,255,1) 80%); 
+
+  }
+  #fire {
+    background: linear-gradient(350deg, rgba(255, 166, 0, 0.499), rgba(255,255,255,1) 80%); 
+
+  }
+  #electric {
+    background: linear-gradient(350deg,rgb(255, 255, 125), rgba(255,255,255,1) 80%); 
+
+  }
+  #rock {
+    background: linear-gradient(350deg, rgb(210, 155, 82), rgba(255,255,255,1) 80%); 
+
+  }
+  #ground {
+    background: linear-gradient(350deg, goldenrod, rgba(255,255,255,1) 80%); 
+
+  }
+  #psychic {
+    background: linear-gradient(350deg,rgb(195, 95, 195), rgba(255,255,255,1) 80%); 
+
+  }
+  #fairy {
+    background: linear-gradient(350deg, pink, rgba(255,255,255,1) 80%); 
+
+  }
+  #steel {
+    background: linear-gradient(350deg, rgb(172, 172, 172), rgba(255,255,255,1) 80%); 
+
+  }
+  #poison {
+    background: linear-gradient(350deg, plum, rgba(255,255,255,1) 80%); 
+
+  }
+  #ice {
+    background: linear-gradient(350deg, lightblue, rgba(255,255,255,1) 80%); 
+
+  }
+  #fighting {
+    background: linear-gradient(350deg,rgba(255, 98, 0, 0.629), rgba(255,255,255,1) 80%); 
+
+  }
+  #dark {
+    background: linear-gradient(350deg, rgb(79, 79, 79), rgba(255,255,255,1) 80%); 
+
+    color: white;
+  }
+  #ghost {
+    background: linear-gradient(350deg, mediumslateblue, rgba(255,255,255,1) 80%); 
+  }
+  #dragon {
+    background: linear-gradient(350deg, rgb(107, 19, 248), rgba(255,255,255,1) 80%); 
+
+    color: white;
+  }
+  #normal {
+    background: linear-gradient(350deg, rgb(213, 213, 213), rgba(255,255,255,1) 80%); 
+
+  }
+  #grass {
+    background: linear-gradient(350deg, rgb(8, 188, 8) 20%, rgba(255,255,255,1) 80%); 
+  }
+  #noType {
+    background-color: none;
+
   }

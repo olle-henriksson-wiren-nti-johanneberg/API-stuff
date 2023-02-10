@@ -179,12 +179,31 @@ function getRandomPokemon() {
         })
         .then((response) => {
             let data2 = response;
+
+
+
             console.log(data2);
+            console.log(data2.sprites.front_default)
+            console.log(data2.types[0].type.name)
+            document.querySelector(".pokePokemonImage").src = data2.sprites.front_default
+            document.querySelector(".slot1").id = data2.types[0].type.name
+            document.querySelector("#" + data2.types[0].type.name).innerHTML = data2.types[0].type.name
+
+            if (data2.types[1] != undefined) {
+                document.querySelector(".slot2").id = data2.types[1].type.name
+                document.querySelector("#" + data2.types[1].type.name).innerHTML = data2.types[1].type.name
+            } else {
+                document.querySelector(".slot2").innerHTML = " ";
+                document.querySelector(".slot2").id = "noType"
+
+
+            }
+            
         })
     })
 }
 
-
+// Types Functions
 
 /**
  * Här är funktionen för knappanimation
