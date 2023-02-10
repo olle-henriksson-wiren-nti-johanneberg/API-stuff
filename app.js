@@ -89,7 +89,76 @@ function getKanyeQuotes() {
             document.querySelector(".kayneQoutes").innerHTML =
                 '😵 Kayne is out! Try later... 😵';
         });
+
 }
+
+function getDogImage() {
+    fetch("https://dog.ceo/api/breeds/image/random")
+    .then(function (response) {
+        return response.json();
+    })
+    .then((response) => {
+        let dogImage = response;
+        console.log(dogImage.message)
+        document.querySelector(".dogImageText").src = dogImage.message;
+    })
+}
+
+//Jokes Start
+document.querySelector(".jokeButton").addEventListener("click", getJokes);
+
+function getJokes() {
+    fetch("https://api.jsonbin.io/v3/b/639859b72d0e0021081bb567")
+    .then(function (response) {
+        return response.json();
+    })
+    .then((response) => {
+        let data = response;
+        console.log(data)
+
+        let random = data.record[Math.floor(Math.random() * data.record.length)];
+        console.log(random + " " + "random number")
+
+        document.querySelector(".jokeText").innerHTML = random.setup + "<br/><br/>" + random.punchline;
+    })
+
+}
+
+
+function getPokemonAbility() {
+    fetch("https://pokeapi.co/api/v2/ability/?offset=0&limit=400")
+    .then(function (response){
+                return response.json();
+    })
+    .then((response) => {
+        let data = response;
+        console.log(data)
+
+        let rng = data.results[Math.floor(Math.random() * data.results.length)];
+        console.log(rng)    
+        console.log(count)
+        document.querySelector(".pokeAbilityText").innerHTML = rng.name;
+            fetch (rng.url) 
+            .then(function (response) {
+            return response.json();
+        })
+            .then ((response) => {
+            let data2 = response;
+            console.log(data2.effect_entries)
+            document.querySelector(".pokeAbilityPokemonText").innerHTML = "Amount of pokemon with this ability: " +  "<span id=numberPkmn>" + data2.pokemon.length + "</span>";
+            document.querySelector(".pokeAbilityGenText").innerHTML = "Original Generation: " + "<span id=numberGen>" + data2.generation.name + "</span>";
+            if (data2.effect_entries[0] == undefined || data2.effect_entries[1] == undefined ) {
+            document.querySelector(".pokeAbilityEffectText").innerHTML = "No Data Available.";
+            } else {
+            document.querySelector(".pokeAbilityEffectText").innerHTML = data2.effect_entries[1].short_effect;
+
+            }
+
+        })
+    })
+
+}
+
 
 /**
  * Här är funktionen för knappanimation
