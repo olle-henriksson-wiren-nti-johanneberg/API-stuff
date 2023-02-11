@@ -102,6 +102,17 @@
     margin-top: 3em;
     font-weight: bold;
     text-transform: uppercase ;
+    margin-bottom: 0;
+  }
+  .pokePokemonTextJP {
+    font-size: 1.33em;
+    margin-top: 0;
+    margin-bottom: 1em;
+  }
+  .pokePokemonTextDE {
+    font-size: 1.33em;
+    margin-bottom: 0.2em;
+    margin-top: 0;
   }
   .pokePokemonImage {
     width: 15vw;
@@ -124,6 +135,11 @@
     display: flex;
     font-weight: 500;
     user-select: none;
+    font-weight: bold;
+  }
+  .pokeFlavorText {
+    width: 30vw;
+    font-size: 1em;
   }
   .guessModeBox {
     display: flex;
@@ -189,6 +205,15 @@
     font-size: 1em;
     font-style: italic;
   }
+  .pokePokemonDex {
+    font-size: 1em;
+    font-style: italic;
+    margin-bottom: 0;
+  }
+  .pokePokemonDexSpan {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
   .genTextSpan {
     font-weight: bold;
     text-transform: uppercase;
@@ -198,9 +223,10 @@
   .hidden {
     background-color: black;
     background: black;
-    cursor: pointer;
+    cursor:default;
     color: transparent;
-    filter: brightness(0);
+    filter: invert(0%) sepia(94%) saturate(6123%) hue-rotate(142deg) brightness(94%) contrast(107%);
+    filter: brightness(0)
   }
   #randomPokemonBox {
     display: flex;
@@ -209,73 +235,73 @@
   }
 
   #bug {
-    background: linear-gradient(350deg,rgba(172, 255, 47, 0.5), rgba(255,255,255,1) 80%); 
+    background: linear-gradient(350deg,rgba(172, 255, 47, 1), rgba(255,255,255,1) ); 
 
   }
   #water {
-    background: linear-gradient(350deg, aqua, rgba(255,255,255,1) 80%);
+    background: linear-gradient(350deg, aqua, rgba(255,255,255,1) );
   }
   #flying {
-    background: linear-gradient(350deg, rgb(168, 244, 224), rgba(255,255,255,1) 80%); 
+    background: linear-gradient(350deg, rgb(168, 244, 224), rgba(255,255,255,1) ); 
 
   }
   #fire {
-    background: linear-gradient(350deg, rgba(255, 166, 0, 0.499), rgba(255,255,255,1) 80%); 
+    background: linear-gradient(350deg, rgba(255, 166, 0, 1), rgba(255,255,255,1) ); 
 
   }
   #electric {
-    background: linear-gradient(350deg,rgb(255, 255, 125), rgba(255,255,255,1) 80%); 
+    background: linear-gradient(350deg,rgb(255, 255, 125), rgba(255,255,255,1) ); 
 
   }
   #rock {
-    background: linear-gradient(350deg, rgb(210, 155, 82), rgba(255,255,255,1) 80%); 
+    background: linear-gradient(350deg, rgb(210, 155, 82), rgba(255,255,255,1) ); 
 
   }
   #ground {
-    background: linear-gradient(350deg, goldenrod, rgba(255,255,255,1) 80%); 
+    background: linear-gradient(350deg, goldenrod, rgba(255,255,255,1)); 
 
   }
   #psychic {
-    background: linear-gradient(350deg,rgb(195, 95, 195), rgba(255,255,255,1) 80%); 
+    background: linear-gradient(350deg,rgb(195, 95, 195), rgba(255,255,255,1) ); 
 
   }
   #fairy {
-    background: linear-gradient(350deg, pink, rgba(255,255,255,1) 80%); 
+    background: linear-gradient(350deg, pink, rgba(255,255,255,1)); 
 
   }
   #steel {
-    background: linear-gradient(350deg, rgb(172, 172, 172), rgba(255,255,255,1) 80%); 
+    background: linear-gradient(350deg, rgb(172, 172, 172), rgba(255,255,255,1) ); 
 
   }
   #poison {
-    background: linear-gradient(350deg, plum, rgba(255,255,255,1) 80%); 
+    background: linear-gradient(350deg, plum, rgba(255,255,255,1)); 
 
   }
   #ice {
-    background: linear-gradient(350deg, lightblue, rgba(255,255,255,1) 80%); 
+    background: linear-gradient(350deg, lightblue, rgba(255,255,255,1)); 
 
   }
   #fighting {
-    background: linear-gradient(350deg,rgba(255, 98, 0, 0.629), rgba(255,255,255,1) 80%); 
+    background: linear-gradient(350deg,rgba(255, 98, 0, 1), rgba(255,255,255,1) ); 
 
   }
   #dark {
-    background: linear-gradient(350deg, rgb(79, 79, 79), rgba(255,255,255,1) 80%); 
+    background: linear-gradient(350deg, rgb(79, 79, 79), rgba(255,255,255,1) ); 
 
   }
   #ghost {
-    background: linear-gradient(350deg, mediumslateblue, rgba(255,255,255,1) 80%); 
+    background: linear-gradient(350deg, mediumslateblue, rgba(255,255,255,1) ); 
   }
   #dragon {
-    background: linear-gradient(350deg, rgb(107, 19, 248), rgba(255,255,255,1) 80%); 
+    background: linear-gradient(350deg, rgb(107, 19, 248), rgba(255,255,255,1) ); 
 
   }
   #normal {
-    background: linear-gradient(350deg, rgb(213, 213, 213), rgba(255,255,255,1) 80%); 
+    background: linear-gradient(350deg, rgb(213, 213, 213), rgba(255,255,255,1) ); 
 
   }
   #grass {
-    background: linear-gradient(350deg, rgb(8, 188, 8) 20%, rgba(255,255,255,1) 80%); 
+    background: linear-gradient(350deg, rgb(8, 188, 8), rgba(255,255,255,1) ); 
   }
   #noType {
     background-color: none;

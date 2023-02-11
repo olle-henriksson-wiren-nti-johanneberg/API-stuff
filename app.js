@@ -185,9 +185,7 @@ function getRandomPokemon() {
             let pokemonType2 = document.querySelector(".slot2")
             
             if (document.querySelector(".guessModeButtonFill").classList.contains("guessModeOn")) {
-                genTextSpan.classList.add("hidden") 
-                pokemonType1.classList.add("hidden")
-                pokemonType2.classList.add("hidden")   
+                guessModeAnswers(); 
             }
 
             console.log(data2);
@@ -214,7 +212,31 @@ function getRandomPokemon() {
 
             console.log(data3)
             console.log(data3.generation.name)
-            document.querySelector(".genTextSpan").innerHTML = data3.generation.name
+            console.log(data3.names[0].name)
+            document.querySelector(".genTextSpan").innerHTML = data3.generation.name //Retrieve Generation
+            document.querySelector(".pokePokemonTextJP").innerHTML = data3.names[0].name // To retrieve name in JP
+            document.querySelector(".pokePokemonTextDE").innerHTML = data3.names[5].name  //German Name
+
+            document.querySelector(".pokePokemonDex").innerHTML = "National Dex Number: " + "<span class=pokePokemonDexSpan>" + data3.pokedex_numbers[0].entry_number + "</span>" // För att få fram nationaldex numret
+            
+            if (data3.flavor_text_entries[0] != undefined) { //Enter other text if there is no flavor text
+                document.querySelector(".pokeFlavorText").innerHTML = data3.flavor_text_entries[0].flavor_text;
+            } else if (data3.generation.name = "generation-v"){
+                document.querySelector(".pokeFlavorText").innerHTML = data3.flavor_text_entries[1].flavor_text;
+                console.log("gen 5 flavor")
+            } else {
+                document.querySelector(".pokeFlavorText").innerHTML = "No description available. :/";
+            }
+
+            /*if (document.querySelector(".genTextSpan").innerHTML = "generation-v" ) {
+                console.log("gen5 flavor")
+                document.querySelector(".pokeFlavorText").innerHTML = data3.flavor_text_entries[1].flavor_text;
+                
+            }
+            if (document.querySelector(".genTextSpan").innerHTML = "generation-vii" ) {
+                console.log("gen7 flavor")
+                document.querySelector(".pokeFlavorText").innerHTML = data3.flavor_text_entries[7].flavor_text;
+            }*/
             
         })
         })   
@@ -227,7 +249,7 @@ function guessModeButton() { // To toggle the fill on button
     document.querySelector(".guessModeButtonFill").classList.toggle("guessModeOn")
 }
 // För att dölja och visa // Guess Mode
-function guessModeAnswers() {
+function guessModeAnswers() { //
     let genTextSpan = document.querySelector(".genTextSpan")
     let pokemonType1 = document.querySelector(".slot1")
     let pokemonType2 = document.querySelector(".slot2")
@@ -239,7 +261,7 @@ function guessModeAnswers() {
 
 }
 
- function showAnswer() {
+ function showAnswer() { // Funktion för att visa svaren genom classlist.remove
     let genTextSpan = document.querySelector(".genTextSpan")
     let pokemonType1 = document.querySelector(".slot1")
     let pokemonType2 = document.querySelector(".slot2")
