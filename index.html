@@ -42,28 +42,76 @@
       <div id="randomPokemonBox">
         
         <div class="guessModeBox">
-          <div class="showAnswersBox" onclick="showAnswer()"><p>Show Answers</p></div>
+          <div class="showAnswersBox true" onclick="showAnswer()"><p>Show Answers</p></div>
+
+
+
           <div class="guessModeInsideBox">
-            <div class="guessModeButton" onclick="guessModeButton()">
-              <div class="guessModeButtonFill"></div>
+            <p class="title">Guess Mode</p>
+
+            <div class="guessModeButtonBox">
+              <div class="guessModeButton" id="typeButton" onclick="guessModeButton1()">
+                <div class="guessModeButtonFill" id="typeButtonFill"></div>
+              </div>
+              <div><p> Toggle Typing</p></div>
             </div>
-            <p>Guess Mode</p>
+
+            <div class="guessModeButtonBox">
+              <div class="guessModeButton" id="nameButton" onclick="guessModeButton2()">
+                <div class="guessModeButtonFill" id="nameButtonFill"></div>
+              </div>
+              <div><p> Toggle Names</p></div>
+            </div>
+
+            <div class="guessModeButtonBox">
+              <div class="guessModeButton" id="genButton" onclick="guessModeButton3()">
+                <div class="guessModeButtonFill" id="genButtonFill"></div>
+              </div>
+              <div><p> Toggle Generation</p></div>
+            </div>
+
+            <div class="guessModeButtonBox">
+              <div class="guessModeButton" id="dexButton" onclick="guessModeButton4()">
+                <div class="guessModeButtonFill" id="dexButtonFill"></div>
+              </div>
+              <div><p> Toggle National Dex</p></div>
+            </div>
+
+            <div class="guessModeButtonBox">
+              <div class="guessModeButton" id="imageButton" onclick="guessModeButton5()">
+                <div class="guessModeButtonFill" id="imageButtonFill"></div>
+              </div>
+              <div><p> Toggle Image</p></div>
+            </div>
+            
           </div>
         </div>
-      <p class="pokePokemonText"></p>
-      <p class="pokePokemonTextDE"></p>
-      <p class="pokePokemonTextJP"></p>
+      <div class="pokemonTextBox">
+        <p class="pokePokemonText"></p>
+      </div>
+      <div class="pokemonTextBox">
+        <p class="pokePokemonTextDE"></p>
+      </div>
+      <div class="pokemonTextBox">
+        <p class="pokePokemonTextJP"></p>
+      </div>
       
       <div class="pokePokemonTypesBox">
             <div class="pokePokemonType slot1" id="0"></div>
             <div class="pokePokemonType slot2" id="1"></div>
       </div>
-      <img class="pokePokemonImage" alt="No Pokemon Sprite" src="images/Color-white.JPG" > 
-
+      <div class="pokemonImageBox">
+        <img class="pokePokemonImage" alt="No Pokemon Sprite" src="images/Color-white.JPG" > 
+      </div>
+       <!-- <div class="imageButtonBox">
+          <div class="frontImageButton"><p>front</p></div>
+          <div class="backImageButton"><p>back</p></div>
+        </div> !-->
+      
       <p class="pokeFlavorText"> </p>
 
 
-      <p class="pokePokemonDex">National Dex Number: </p>
+      <p class="pokePokemonDex">National Dex Number: <span class="pokePokemonDexSpan"></span> </p>
       <div class="genBox">
           <p class="genText">Original Generation: <span class="genTextSpan"></span></p>
       </div>

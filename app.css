@@ -3,10 +3,13 @@
       Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   }
 
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
   main {
     text-align: center;
-    padding: 1em;
-    margin: 0 auto;
   }
 
   img {
@@ -146,7 +149,7 @@
     flex-direction: row;  
     align-items: center;
     width: 100%;
-    justify-content: space-around;
+    justify-content: space-between;
   }
   .showAnswersBox {
     width: 10vw;
@@ -157,22 +160,46 @@
     display: flex;
     cursor: pointer;
     user-select: none;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin-left: 2em;
   }
   .showAnswersBox p {
     font-size: 1em;
     text-transform: uppercase;
   }
   .guessModeInsideBox {
-    width: 10%;
+    width: 20%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     font-style: italic;
     text-transform: uppercase;
+    background-color: rgb(211, 211, 211);
+    border-bottom-left-radius: 0.6em;
+    filter: drop-shadow(-5px 5px 5px   #6b6b6b);
   }
   .guessModeInsideBox p {
     font-size: 1em;
+  }
+  .title {
+    min-width: 10vw;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+
+  .flag {
+    border: solid black 1px;
+    width: 20px;
+    height: 12px;
+    margin-right: 0.3em;
+  }
+  .pokePokemonTextJP, .pokePokemonTextDE   {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 30vw;
   }
   .guessModeButton {
     width: 25px;
@@ -182,13 +209,23 @@
     align-items: center;
     justify-content: center;
     transition: all ease 0.1s;
+    margin-right: 0.5em;
 
+  }
+  .guessModeButtonBox {
+    display: flex;
+    align-items: center;
+    width: auto;
+    min-width: 15vw;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+   
   }
   .guessModeOn {
     width: 100%;
     height: 80%;
     background-color: black;
-    border: white 2px solid;
+    border: rgb(211, 211, 211) 2px solid;
     transition: all ease 0.1s;
   }
   .guessModeButtonFill {
@@ -217,7 +254,6 @@
   .genTextSpan {
     font-weight: bold;
     text-transform: uppercase;
-    cursor: pointer;
     user-select: none;
   }
   .hidden {
@@ -234,6 +270,31 @@
     align-items: center;
   }
 
+  .pokemonImageBox {
+    display: flex;
+    min-width: 40%;
+    justify-content: center;
+  }
+  .imageButtonBox {
+    display: flex;
+    width: 15vw;
+    justify-content: space-evenly;
+
+  }
+  .frontImageButton, .backImageButton {
+    border: solid 1px black;
+    border-radius: 0.2em;
+    cursor: pointer;
+  }
+  .imageButtonBox p {
+    font-size: 1em;
+    margin-right: 8px;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-left: 8px;
+  }
   #bug {
     background: linear-gradient(350deg,rgba(172, 255, 47, 1), rgba(255,255,255,1) ); 
 

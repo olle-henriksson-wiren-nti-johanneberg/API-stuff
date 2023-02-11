@@ -183,19 +183,42 @@ function getRandomPokemon() {
             let genTextSpan = document.querySelector(".genTextSpan")
             let pokemonType1 = document.querySelector(".slot1")
             let pokemonType2 = document.querySelector(".slot2")
-            
-            if (document.querySelector(".guessModeButtonFill").classList.contains("guessModeOn")) {
+
+                showAnswer()
+            if (document.querySelector("#typeButtonFill").classList.contains("guessModeOn")) {
                 guessModeAnswers(); 
             }
-
+            if (document.querySelector("#genButtonFill").classList.contains("guessModeOn")) {
+                guessModeAnswers(); 
+            }
+            if (document.querySelector("#nameButtonFill").classList.contains("guessModeOn")) {
+                guessModeAnswers(); 
+            }
+            if (document.querySelector("#dexButtonFill").classList.contains("guessModeOn")) {
+                guessModeAnswers(); 
+            }
+            if (document.querySelector("#imageButtonFill").classList.contains("guessModeOn")) {
+                guessModeAnswers(); 
+            }
             console.log(data2);
             console.log(data2.sprites.front_default)
             console.log(data2.types[0].type.name)
-            document.querySelector(".pokePokemonImage").src = data2.sprites.front_default
-            document.querySelector(".slot1").id = data2.types[0].type.name
-            document.querySelector("#" + data2.types[0].type.name).innerHTML = data2.types[0].type.name
+            document.querySelector(".pokePokemonImage").src = data2.sprites.front_default //Sprite Image
+            document.querySelector(".slot1").id = data2.types[0].type.name   // ID connected to Type 1
+            document.querySelector("#" + data2.types[0].type.name).innerHTML = data2.types[0].type.name 
 
-            if (data2.types[1] != undefined) {
+
+            /*function toggleBackSprite() { Doesnt Work, might work on later
+            console.log("back toggled")
+            document.querySelector(".pokePokemonImage").src = data2.sprites.back_default;
+            }
+            function toggleFrontSprite() {
+            document.querySelector(".pokePokemonImage").src = data2.sprites.front_default;
+            }
+            document.querySelector(".frontImageButton").addEventListener("click", toggleFrontSprite());
+            document.querySelector(".backImageButton").addEventListener("click", toggleBackSprite())**/
+
+            if (data2.types[1] != undefined) { //If only 1 type or not
                 document.querySelector(".slot2").id = data2.types[1].type.name
                 document.querySelector("#" + data2.types[1].type.name).innerHTML = data2.types[1].type.name
             } else {
@@ -214,19 +237,13 @@ function getRandomPokemon() {
             console.log(data3.generation.name)
             console.log(data3.names[0].name)
             document.querySelector(".genTextSpan").innerHTML = data3.generation.name //Retrieve Generation
-            document.querySelector(".pokePokemonTextJP").innerHTML = data3.names[0].name // To retrieve name in JP
-            document.querySelector(".pokePokemonTextDE").innerHTML = data3.names[5].name  //German Name
 
-            document.querySelector(".pokePokemonDex").innerHTML = "National Dex Number: " + "<span class=pokePokemonDexSpan>" + data3.pokedex_numbers[0].entry_number + "</span>" // För att få fram nationaldex numret
+            document.querySelector(".pokePokemonTextJP").innerHTML = "<img class=flag src=./images/Flag_of_Japan.svg.png>" + data3.names[0].name // To retrieve name in JP
+            document.querySelector(".pokePokemonTextDE").innerHTML = "<img class=flag src=./images/flag_german.jpeg>" + data3.names[5].name  //German Name
+
+            document.querySelector(".pokePokemonDexSpan").innerHTML = data3.pokedex_numbers[0].entry_number // För att få fram nationaldex numret
             
-            if (data3.flavor_text_entries[0] != undefined) { //Enter other text if there is no flavor text
-                document.querySelector(".pokeFlavorText").innerHTML = data3.flavor_text_entries[0].flavor_text;
-            } else if (data3.generation.name = "generation-v"){
-                document.querySelector(".pokeFlavorText").innerHTML = data3.flavor_text_entries[1].flavor_text;
-                console.log("gen 5 flavor")
-            } else {
-                document.querySelector(".pokeFlavorText").innerHTML = "No description available. :/";
-            }
+
 
             /*if (document.querySelector(".genTextSpan").innerHTML = "generation-v" ) {
                 console.log("gen5 flavor")
@@ -245,30 +262,93 @@ function getRandomPokemon() {
     }) 
 }
 
-function guessModeButton() { // To toggle the fill on button
-    document.querySelector(".guessModeButtonFill").classList.toggle("guessModeOn")
+function guessModeButton1() { // To toggle the fill on button
+    document.querySelector("#typeButtonFill").classList.toggle("guessModeOn")
 }
+function guessModeButton2() { // To toggle the fill on button
+    document.querySelector("#nameButtonFill").classList.toggle("guessModeOn")
+}
+function guessModeButton3() { // To toggle the fill on button
+    document.querySelector("#genButtonFill").classList.toggle("guessModeOn")
+}
+function guessModeButton4() { // To toggle the fill on button
+    document.querySelector("#dexButtonFill").classList.toggle("guessModeOn")
+}
+function guessModeButton5() { // To toggle the fill on button
+    document.querySelector("#imageButtonFill").classList.toggle("guessModeOn")
+}
+
+
+
+
 // För att dölja och visa // Guess Mode
-function guessModeAnswers() { //
     let genTextSpan = document.querySelector(".genTextSpan")
     let pokemonType1 = document.querySelector(".slot1")
     let pokemonType2 = document.querySelector(".slot2")
+    let pokemonNameEn = document.querySelector(".pokePokemonText")
+    let pokemonNameDe = document.querySelector(".pokePokemonTextDE")
+    let pokemonNameJP = document.querySelector(".pokePokemonTextJP")
+    let pokedexTextSpan = document.querySelector(".pokePokemonDexSpan");
+    let pokemonImage = document.querySelector(".pokePokemonImage");
+    let guessFill = document.querySelectorAll(".guessModeButtonFill");
 
-    console.log("guessModeBUtton Toggled")
-    genTextSpan.classList.add("hidden") 
-    pokemonType1.classList.add("hidden")
-    pokemonType2.classList.add("hidden")    
+function guessModeAnswers() { //
+
+    console.log(guessFill)
+    /*if(document.querySelector(".showAnswersBox").classList.contains("false")) {
+        void(0)
+    }*/
+    if(document.querySelector("#genButtonFill").classList.contains("guessModeOn")) {
+        genTextSpan.classList.add("hidden") 
+        console.log("gen hidden")
+
+    } 
+    if(document.querySelector("#typeButtonFill").classList.contains("guessModeOn")) {
+        pokemonType1.classList.add("hidden")
+        pokemonType2.classList.add("hidden")  
+        console.log("types hidden")
+    } 
+    
+    
+    
+    if(document.querySelector("#nameButtonFill").classList.contains("guessModeOn")) {
+        pokemonNameEn.classList.add("hidden")
+        pokemonNameDe.classList.add("hidden")
+        pokemonNameJP.classList.add("hidden")
+        console.log("name hidden")
+
+    } 
+    
+    if(document.querySelector("#dexButtonFill").classList.contains("guessModeOn")) {
+        pokedexTextSpan.classList.add("hidden")
+        console.log("pokdex hidden")
+
+    } 
+    
+    if(document.querySelector("#imageButtonFill").classList.contains("guessModeOn")) {
+        pokemonImage.classList.add("hidden")
+        console.log("image hidden")
+
+    }
+       
+    
+    
+
 
 }
 
  function showAnswer() { // Funktion för att visa svaren genom classlist.remove
-    let genTextSpan = document.querySelector(".genTextSpan")
-    let pokemonType1 = document.querySelector(".slot1")
-    let pokemonType2 = document.querySelector(".slot2")
-
     genTextSpan.classList.remove("hidden") 
     pokemonType1.classList.remove("hidden")
     pokemonType2.classList.remove("hidden")   
+    pokemonNameEn.classList.remove("hidden")
+    pokemonNameDe.classList.remove("hidden")
+    pokemonNameJP.classList.remove("hidden")
+    pokedexTextSpan.classList.remove("hidden")
+    pokemonImage.classList.remove("hidden")
+
+    
+
  }
 // Types Functions
 
