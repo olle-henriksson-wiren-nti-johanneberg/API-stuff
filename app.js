@@ -160,6 +160,7 @@ function getPokemonAbility() {
 }
 
 // Random Pokemon Sprite
+getRandomPokemon()
 
 function getRandomPokemon() {
     fetch("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1300") //För att ta all pokemon data!
@@ -168,7 +169,7 @@ function getRandomPokemon() {
     })
     .then((response) => {
         let data = response;
-        console.log(data);
+        console.log(data.results);
 
         let rng = data.results[Math.floor(Math.random() * data.results.length)];
 
@@ -188,8 +189,19 @@ function getRandomPokemon() {
             if (document.querySelector("#imageButtonFill").classList.contains("guessModeOn")) {
                 guessModeAnswers(); 
             }
-
+            
         document.querySelector(".pokePokemonText").innerHTML = rng.name;
+
+        const thisRng = data.results.indexOf(rng);
+        if (thisRng > -1) {
+            data.results.splice(thisRng, 1);
+        }
+        console.log(data.results)
+        console.log(rng)
+        
+        for (i = 0; i < data.results.length; i++)
+            document.querySelector(".pokemonLeftSpan").innerHTML = ((i+1));
+
         fetch(rng.url) // To fetch the image of said pokémon
         .then (function (response){
             return response.json();
@@ -358,9 +370,32 @@ function guessModeAnswers() { //
 
     
 
- }
-// Types Functions
+ }   
+  let smashClicks = 0;
+  let passClicks = 0;
+  let totalClicks = smashClicks + passClicks;
 
+// Click Counter Function 
+function clickSmashCounter() {
+    smashClicks += 1;
+    console.log(smashClicks)
+    document.querySelector(".smashCounter > p").innerHTML = smashClicks;    
+    smashPassTotal();
+    getRandomPokemon();
+
+}
+function clickPassCounter() {
+    passClicks += 1;
+    console.log(passClicks)
+    document.querySelector(".passCounter > p").innerHTML = passClicks;
+    getRandomPokemon();
+    smashPassTotal();
+}
+function smashPassTotal() {
+    totalClicks += 1;
+    document.querySelector(".totalClicksCounter").innerHTML = totalClicks;
+
+}
 
 
 /**
