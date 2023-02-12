@@ -171,20 +171,8 @@ function getRandomPokemon() {
         console.log(data);
 
         let rng = data.results[Math.floor(Math.random() * data.results.length)];
-        
-        document.querySelector(".pokePokemonText").innerHTML = rng.name;
-        fetch(rng.url) // To fetch the image of said pokémon
-        .then (function (response){
-            return response.json();
-        })
-        .then((response) => {
-            let data2 = response;
 
-            let genTextSpan = document.querySelector(".genTextSpan")
-            let pokemonType1 = document.querySelector(".slot1")
-            let pokemonType2 = document.querySelector(".slot2")
-
-                showAnswer()
+        showAnswer()
             if (document.querySelector("#typeButtonFill").classList.contains("guessModeOn")) {
                 guessModeAnswers(); 
             }
@@ -200,6 +188,20 @@ function getRandomPokemon() {
             if (document.querySelector("#imageButtonFill").classList.contains("guessModeOn")) {
                 guessModeAnswers(); 
             }
+
+        document.querySelector(".pokePokemonText").innerHTML = rng.name;
+        fetch(rng.url) // To fetch the image of said pokémon
+        .then (function (response){
+            return response.json();
+        })
+        .then((response) => {
+            let data2 = response;
+
+            let genTextSpan = document.querySelector(".genTextSpan")
+            let pokemonType1 = document.querySelector(".slot1")
+            let pokemonType2 = document.querySelector(".slot2")
+
+                
             console.log(data2);
             console.log(data2.sprites.front_default)
             console.log(data2.types[0].type.name)
@@ -235,12 +237,13 @@ function getRandomPokemon() {
 
             console.log(data3)
             console.log(data3.generation.name)
-            console.log(data3.names[0].name)
+            console.log(data3.names[6].name)
             document.querySelector(".genTextSpan").innerHTML = data3.generation.name //Retrieve Generation
 
             document.querySelector(".pokePokemonTextJP").innerHTML = "<img class=flag src=./images/Flag_of_Japan.svg.png>" + data3.names[0].name // To retrieve name in JP
             document.querySelector(".pokePokemonTextDE").innerHTML = "<img class=flag src=./images/flag_german.jpeg>" + data3.names[5].name  //German Name
-
+            //document.querySelector(".pokePokemonTextES").innerHTML = "<img class=flag src=./images/flag_of_Spain.png>" + data3.names[6].name; //Spanish, english and spanihs are the same L 
+            document.querySelector(".pokePokemonTextFR").innerHTML = "<img class=flag src=./images/flag_france.png>" + data3.names[4].name; 
             document.querySelector(".pokePokemonDexSpan").innerHTML = data3.pokedex_numbers[0].entry_number // För att få fram nationaldex numret
             
 
@@ -287,6 +290,8 @@ function guessModeButton5() { // To toggle the fill on button
     let pokemonType2 = document.querySelector(".slot2")
     let pokemonNameEn = document.querySelector(".pokePokemonText")
     let pokemonNameDe = document.querySelector(".pokePokemonTextDE")
+    //let pokemonNameEs = document.querySelector(".pokePokemonTextES")
+    let pokemonNameFr = document.querySelector(".pokePokemonTextFR")
     let pokemonNameJP = document.querySelector(".pokePokemonTextJP")
     let pokedexTextSpan = document.querySelector(".pokePokemonDexSpan");
     let pokemonImage = document.querySelector(".pokePokemonImage");
@@ -315,6 +320,8 @@ function guessModeAnswers() { //
         pokemonNameEn.classList.add("hidden")
         pokemonNameDe.classList.add("hidden")
         pokemonNameJP.classList.add("hidden")
+        pokemonNameFr.classList.add("hidden")
+        //pokemonNameEs.classList.add("hidden")
         console.log("name hidden")
 
     } 
@@ -344,6 +351,8 @@ function guessModeAnswers() { //
     pokemonNameEn.classList.remove("hidden")
     pokemonNameDe.classList.remove("hidden")
     pokemonNameJP.classList.remove("hidden")
+    pokemonNameFr.classList.remove("hidden")
+    //pokemonNameEs.classList.remove("hidden")
     pokedexTextSpan.classList.remove("hidden")
     pokemonImage.classList.remove("hidden")
 
