@@ -35,8 +35,9 @@
     background-color: beige;
   }
   p {
-
+    margin: 1rem auto;
     line-height: 1.35;
+    font-size: 1.6rem;
   }
   .counting {
     padding-top: 0.5rem;
@@ -105,11 +106,8 @@
     font-weight: bold;
     text-transform: uppercase ;
     margin-bottom: 0;
-    font-size: 1.33em;
   }
-  .pokemonLeft {
-    margin-top: 6em;
-  }
+  
   .pokePokemonImage {
     width: 15vw;
     height: 25vh;
@@ -140,84 +138,10 @@
   .guessModeBox {
     display: flex;
     flex-direction: row;  
+    align-items: center;
     width: 100%;
-    position: absolute;
-    justify-content: space-between;
-  }
-  .smashPassBox {
-    width: 20%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-style: italic;
-    text-transform: uppercase;
-    background-color: rgb(211, 211, 211);
-    border-bottom-right-radius: 0.6em;
-    filter: drop-shadow(-5px 5px 5px #6b6b6b);
-  }
-  .smashPassBox p:nth-child(3) {
-    margin: 0;
-    margin-top: 1em;
-  }
-  .smashPassButtons {
-    margin-top: 1em;
-    display: flex;
-    justify-content: space-around;
-    width: 80%;
-    height: 30px;
-    border-radius: 0.33em;
-    align-items: center;
-    
-  }
-  .smashPassButtons div {
-    margin-left: 1em;
-    margin-right: 1em;
-    margin-bottom: 2em;
-    margin-top: 1em;
-    text-align: center;
-    border: solid 1px black;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
-    border-radius: 0.33em;
-    font-style: normal;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all ease 0.3s;
-  }
-  .smashPassButtons div:nth-child(1):hover {
-    background-color: rgb(255, 151, 151);
-  }
-  .smashPassButtons div:nth-child(2):hover {
-    background-color: rgb(151, 208, 255);
-  }
-  .smashPassButtons p {
-    margin: 0;
-    user-select: none;
-  }
-  .smashPassBox p {
-    font-size: 1em;
-  }
-  .smashPassCounter {
-    display: flex;
-    width: 80%;
-    height: 30px;
-    align-items: center;
-    justify-content: space-around;
-    border-radius: 0.33em;
-    background-color: #acacac;
-  }
-  .smashPassCounter div {
-    margin-left: 1em;
-    margin-right: 1em;
-    text-align: center;
-  }
-  .smashPassCounter p {
-    color: white;
-    user-select: none;
+
+    justify-content: flex-end;
   }
   .showAnswersBox {
     width: 10vw;
@@ -257,7 +181,6 @@
     filter: drop-shadow(-5px 5px 5px   #6b6b6b);
   }
   .guessModeInsideBox p {
-
     font-size: 1em;
   }
   .title {
@@ -299,7 +222,7 @@
     min-width: 15vw;
     flex-wrap: nowrap;
     justify-content: flex-start;
-    margin-bottom: 1em;
+   
   }
   .guessModeOn {
     width: 100%;
