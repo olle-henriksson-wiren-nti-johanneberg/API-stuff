@@ -159,41 +159,18 @@ function getPokemonAbility() {
 
 }
 
-
-
-
-
-
-
-
-
 // Random Pokemon Sprite
-fetch("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1300") 
-.then (function (response) {
+
+function getRandomPokemon() {
+    fetch("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1300") //För att ta all pokemon data!
+    .then (function (response) {
         return response.json();
     })
     .then((response) => {
         let data = response;
+        console.log(data);
+
         let rng = data.results[Math.floor(Math.random() * data.results.length)];
-        fetch(rng.url)
-    }) .then (function (response){
-        return response.json();
-    })
-    .then((response) => {
-        let data2 = response; 
-
-        fetch(data2.species.url) // För att hitta species datan, används under för att ta fram OG generation
-        .then (function(response3) {
-            return response3.json();
-        })
-        .then((response3) => {
-            let data3 = response3;      
-        })
-    })
-
-
-
-function getRandomPokemon() {
 
         showAnswer()
             if (document.querySelector("#typeButtonFill").classList.contains("guessModeOn")) {
@@ -211,18 +188,14 @@ function getRandomPokemon() {
             if (document.querySelector("#imageButtonFill").classList.contains("guessModeOn")) {
                 guessModeAnswers(); 
             }
-            
-        document.querySelector(".pokePokemonText").innerHTML = rng.name;
 
-        const thisRng = data.results.indexOf(rng);
-        if (thisRng > -1) {
-            data.results.splice(thisRng, 1);
-        }
-        console.log(data.results)
-        console.log(rng)
-        
-        for (i = 0; i < data.results.length; i++)
-            document.querySelector(".pokemonLeftSpan").innerHTML = ((i+1));
+        document.querySelector(".pokePokemonText").innerHTML = rng.name;
+        fetch(rng.url) // To fetch the image of said pokémon
+        .then (function (response){
+            return response.json();
+        })
+        .then((response) => {
+            let data2 = response;
 
             let genTextSpan = document.querySelector(".genTextSpan")
             let pokemonType1 = document.querySelector(".slot1")
@@ -254,6 +227,12 @@ function getRandomPokemon() {
                 document.querySelector(".slot2").innerHTML = " ";
                 document.querySelector(".slot2").id = "noType"
             }
+        fetch(data2.species.url) // För att hitta species datan, används under för att ta fram OG generation
+        .then (function(response) {
+            return response.json();
+        })
+        .then((response) => {
+            let data3 = response;
             
 
             console.log(data3)
@@ -278,7 +257,12 @@ function getRandomPokemon() {
                 console.log("gen7 flavor")
                 document.querySelector(".pokeFlavorText").innerHTML = data3.flavor_text_entries[7].flavor_text;
             }*/
-
+            
+        })
+        })   
+                 
+       
+    }) 
 }
 
 function guessModeButton1() { // To toggle the fill on button
@@ -374,32 +358,9 @@ function guessModeAnswers() { //
 
     
 
- }   
-  let smashClicks = 0;
-  let passClicks = 0;
-  let totalClicks = smashClicks + passClicks;
+ }
+// Types Functions
 
-// Click Counter Function 
-function clickSmashCounter() {
-    smashClicks += 1;
-    console.log(smashClicks)
-    document.querySelector(".smashCounter > p").innerHTML = smashClicks;    
-    smashPassTotal();
-    getRandomPokemon();
-
-}
-function clickPassCounter() {
-    passClicks += 1;
-    console.log(passClicks)
-    document.querySelector(".passCounter > p").innerHTML = passClicks;
-    getRandomPokemon();
-    smashPassTotal();
-}
-function smashPassTotal() {
-    totalClicks += 1;
-    document.querySelector(".totalClicksCounter").innerHTML = totalClicks;
-
-}
 
 
 /**
